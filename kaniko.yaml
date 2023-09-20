@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kaniko
+spec:
+  # imagePullSecrets:
+  #   - name: regcreds
+  containers:
+  - name: kubectl
+    image: 910151756257.dkr.ecr.us-east-1.amazonaws.com/kubectl:sonar_khgtt
+    command:
+    - /bin/cat
+    tty: true
+  - name: kaniko
+    image: gcr.io/kaniko-project/executor:debug
+    command:
+    - /busybox/cat
+    tty: true
+    resources:
+      limits:
+        cpu: "2"
+        memory: "1024Mi"
+      requests:
+        cpu: "2"
+        memory: "512Mi"
+    # volumeMounts:
+    #     # - name: docker-config
+    #     #   mountPath: /kaniko/.docker/
+    #     # when not using instance role
+    #     - name: aws-secret
+    #       mountPath: /root/.aws/
+  restartPolicy: Never
+  volumes:
+  # - name: docker-config
+  #   configMap:
+  #     name: docker-config
+  # when not using instance role
+  - name: aws-secret
+    secret:
+      secretName: aws-secret
