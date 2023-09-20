@@ -49,7 +49,7 @@ pipeline {
                                     withCredentials([gitUsernamePassword(credentialsId: 'GITHUB_TOKEN', gitToolName: 'Default')]) {
                                         sh "git config --global user.email 'vikram@test.com'"
                                         sh "git config --global user.name 'VicK'"
-                                        sh "git checkout -b master"
+                                        sh "git checkout master"
                                         sh "git add values.yaml"
                                         sh "git config --global --add safe.directory '*'"
                                         sh "git commit -m 'pushing test build: ${BUILD_NUMBER}'"
