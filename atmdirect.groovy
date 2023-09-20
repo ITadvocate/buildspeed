@@ -51,11 +51,10 @@ pipeline {
                                         sh "git config --global user.name 'VicK'"
                                         sh "git add values.yaml"
                                         sh "git config --global --add safe.directory '*'"
-                                        sh "git pull --set-upstream origin master"
                                         sh "git commit -m 'pushing test build: ${BUILD_NUMBER}"
                                         sh "git pull --set-upstream origin master"
                                         sh "git branch"
-                                        sh "git push --set-upstream origin -f ${groovy_branch}"
+                                        sh "git push --set-upstream origin -f master"
                                     }
                                 }
                             }
