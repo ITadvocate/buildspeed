@@ -35,6 +35,6 @@ spec:
   #   configMap:
   #     name: docker-config
   # when not using instance role
-  - name: aws-secret
-    secret:
-      secretName: aws-secret
+  # - name: aws-secret
+  #   secret:
+  #     secretName: aws-secret
