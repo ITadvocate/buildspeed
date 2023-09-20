@@ -7,7 +7,7 @@ spec:
   #   - name: regcreds
   containers:
   - name: kubectl
-    image: 910151756257.dkr.ecr.us-east-1.amazonaws.com/kubectl:sonar_khgtt
+    image: vkramkumar/testings:helm
     command:
     - /bin/cat
     tty: true
