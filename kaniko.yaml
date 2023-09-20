@@ -30,7 +30,7 @@ spec:
     #     - name: aws-secret
     #       mountPath: /root/.aws/
   restartPolicy: Never
-  volumes:
+  # volumes:
   # - name: docker-config
   #   configMap:
   #     name: docker-config
