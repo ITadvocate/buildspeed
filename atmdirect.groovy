@@ -16,7 +16,6 @@ pipeline {
 
   stages {
 
-
     stage ('Stage1 : compiling code') {
         steps {
             println "compiling mvn code"
@@ -60,6 +59,11 @@ pipeline {
                         }
                     }
 
+    stage ('Clean') {
+        steps {
+            sh"rm -rf ${WORKSPACE}/atm"
+        }
+    }
 
 
 }
