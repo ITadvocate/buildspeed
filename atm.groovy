@@ -23,19 +23,25 @@ pipeline {
 
 
     stage ('Stage1 : compiling code') {
-            println "compiling mvn code"
-            sh "sleep 10"
-
+        steps {
+            echo "compiling mvn code"
+            sleep 10
+        }
     }
 
     stage ("Pushing docker image") {
-        printl "pushing code to Docker hub"
-        sh "sleep 5"
+        steps {
+        echo "pushing code to Docker hub"
+        sleep 5
+    }
     }
 
-    stage ("Updating github for ArgoCD")
-     sh "helm upgrade --install atm_demo . values.yaml" + " --set application.docker.tag=${currentBuild.number}"
+    stage ("Updating github for ArgoCD") {
+     steps { 
+        sh "helm upgrade --install atm_demo . values.yaml" + " --set application.docker.tag=${currentBuild.number}"
+     }
 
   }
 
+}
 }
