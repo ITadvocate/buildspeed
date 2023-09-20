@@ -53,7 +53,7 @@ pipeline {
                                         sh "git config --global --add safe.directory '*'"
                                         sh "git commit -m 'pushing test build: ${BUILD_NUMBER}'"
                                         sh "git config core.ignorecase true"
-                                        sh "git push --set-upstream origin -f master"
+                                        sh "git push -u origin master"
                                     }
                                 }
                             }
