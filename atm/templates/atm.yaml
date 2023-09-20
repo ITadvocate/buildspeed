@@ -17,3 +17,5 @@ spec:
       containers:
       - image: vkramkumar/testings:{{ .Values.image.name }}
         name: nginx
+        ports:
+            - containerPort: 8080
