@@ -23,14 +23,14 @@ pipeline {
 
 
     stage ('Stage1 : compiling code') {
-            echo "compiling mvn code"
-            sleep 10
+            println "compiling mvn code"
+            sh "sleep 10"
 
     }
 
     stage ("Pushing docker image") {
-        echo "pushing code to Docker hub"
-        sleep 5
+        printl "pushing code to Docker hub"
+        sh "sleep 5"
     }
 
     stage ("Updating github for ArgoCD")
