@@ -20,14 +20,14 @@ pipeline {
     stage ('Stage1 : compiling code') {
         steps {
             println "compiling mvn code"
-            sleep 10
+            sleep 1
         }
     }
 
     stage ("Pushing docker image") {
         steps {
         println "pushing code to Docker hub"
-        sleep 5
+        sleep 1
     }
     }
 
@@ -46,7 +46,7 @@ pipeline {
                     steps {
                             dir ('atm') {
                                 script {
-                                    withCredentials([gitUsernamePassword(credentialsId: 'GIT_SEC_TOKEN', gitToolName: 'Default')]) {
+                                    withCredentials([gitUsernamePassword(credentialsId: 'GITHUB_TOKEN', gitToolName: 'Default')]) {
                                         sh "git config --global user.email 'vikram@test.com'"
                                         sh "git config --global user.name 'VicK'"
                                         sh "git checkout -b master"
