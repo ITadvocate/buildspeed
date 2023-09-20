@@ -34,7 +34,7 @@ pipeline {
     stage ("Updating github for ArgoCD") {
      steps {
         dir ('atm') {
-        sh"cat demo_values > values.yaml"
+        sh"cat demo_values.yaml > values.yaml"
         sh """sed -i "s/v1/v${BUILD_NUMBER}/" values.yaml"""
         }
      }
