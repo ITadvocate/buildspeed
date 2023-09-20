@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: omni
+  name: omni
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: omni
+  template:
+    metadata:
+      labels:
+        app: omni
+    spec:
+      containers:
+      - image: vkramkumar/testings:{{ .Values.image.name }}
+        name: nginx
