@@ -47,10 +47,8 @@ pipeline {
                                         sh "git config --global user.name 'VicK'"
                                         sh "git checkout master"
                                         sh "git add values.yaml"                                        
-                                        sh "git config core.ignorecase true"
                                         sh "git config --global --add safe.directory '*'"
                                         sh "git commit -m 'pushing test build: ${BUILD_NUMBER_VAL}'"
-                                        sh "git config core.ignorecase true"
                                         sh "git push -u origin master"
                                     }
                                 }
