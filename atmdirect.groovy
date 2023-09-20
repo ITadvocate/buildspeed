@@ -12,7 +12,7 @@ pipeline {
 
 //   }
 
-  agent any 
+  agent any
 
   stages {
 
@@ -36,9 +36,9 @@ pipeline {
         dir ('atm') {
         sh"cat demo_values.yaml > values.yaml"
         sh """sed -i "s/v1/v${BUILD_NUMBER}/" values.yaml"""
+            }
         }
-     }
-  }
+    }
 
 
 
@@ -52,15 +52,12 @@ pipeline {
                                         sh "git add values.yaml"
                                         sh "git config --global --add safe.directory '*'"
                                         sh "git commit -m 'pushing test build: ${BUILD_NUMBER}"
-                                        sh "git pull --set-upstream origin master"
-                                        sh "git branch"
                                         sh "git push --set-upstream origin -f master"
                                     }
                                 }
                             }
                         }
                     }
-                
 
 
 
