@@ -31,7 +31,7 @@ pipeline {
      steps {
         dir ('atm') {
         sh"cat demo_values.yaml > values.yaml"
-        sh """sed -i "s/v1/v${BUILD_NUMBER}/" values.yaml"""
+        sh """sed -i "s/v1/v${BUILD_NUMBER_VAL}/" values.yaml"""
             }
         }
     }
