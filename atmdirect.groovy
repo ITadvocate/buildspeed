@@ -5,12 +5,9 @@ pipeline {
     timestamps ()
   }
 
-//   environment {
-//       my_git_token=credentials('github_token')
-//       def application="graphql"
-//       def application_repo="pikup-server"
-
-//   }
+  environment {
+      def BUILD_NUMBER_VAL="${BUILD_NUMBER_VAL}"
+  }
 
   agent any
 
@@ -52,7 +49,7 @@ pipeline {
                                         sh "git add values.yaml"                                        
                                         sh "git config core.ignorecase true"
                                         sh "git config --global --add safe.directory '*'"
-                                        sh "git commit -m 'pushing test build: ${BUILD_NUMBER}'"
+                                        sh "git commit -m 'pushing test build: ${BUILD_NUMBER_VAL}'"
                                         sh "git config core.ignorecase true"
                                         sh "git push -u origin master"
                                     }
